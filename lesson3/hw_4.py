@@ -1,59 +1,53 @@
-result = 0
-while True:
-    if result != 0:
-        val_1 = result
-    if result == 0:
-        val_1 = input('Enter number 1 : ')
-        while True:
-            try:
-             val_1 = float(val_1)
-            except ValueError:
+import os
+import sys
 
-             print(f'Value {val_1} is not number')
-             val_1 = input('Enter number 1 again: ')
+# path содержит первый аргумент, считаем, что это валидный адрес в файловой системе
+path = sys.argv[1]
+print(f"Start in {path}")
 
-            else:
-                break
+# files - это список имен файлов и папок в path.
+files = os.listdir(path)
 
-    operation = input('Enter type of operation: ')
-    while True:
-        if operation == '+' or operation == '-' or operation == '*' or operation == '/' or operation == '=':
-            break
-        else:
+#print(files)
+video_files = []
+video_types = ('avi', 'mp4', 'mov', 'AVI', 'MP4', 'MOV')
+music_files = []
+music_types = ('mp3', 'ogg', 'wav', 'arm', 'MP3', 'OGG', 'WAV', 'ARM')
+documents_files = []
+documents_types = ('doc', 'docx', 'txt', 'DOC', 'DOCX', 'TXT')
+image_files = []
+image_types = ('jpeg', 'png', 'jpg', 'bmp', 'JPEG', 'JPG', 'BMP', 'PNG')
+other_files = []
 
-            print('Incorrect operator')
-            operation = input('Enter type of operation again: ')
+for file in files:
+    for i in documents_types:
+        if file.endswith(i):
+            documents_files.append(file)
 
-    if operation != '=':
-        val_2 = input('Enter number 2: ')
-        while True:
-            try:
-                val_2 = float(val_2)
-            except ValueError:
+    for i in music_types:
+        if file.endswith(i):
+            music_files.append(file)
 
-                print(f'Value {val_2} is not number')
-                val_2 = input('Enter number 2 again: ') 
+    for i in image_types:
+        if file.endswith(i):
+            image_files.append(file)
+    
+    for i in video_types:
+        if file.endswith(i):
+            video_files.append(file)
+    
+    if file not in documents_files:
+        if file not in music_files:
+            if file not in image_files:
+                if file not in video_files:
+                    other_files.append(file)
 
-            # Zero Division check
-            if operation == '/' and val_2 == 0:
+print(f'Documents: {documents_files}')
+print(f'Music files: {music_files}')
+print(f'Image files: {image_files}')
+print(f'Video files: {video_files}')
+print(f'Other {other_files}')
+print(f'Suppotr types of files {video_types}, {music_types}, {image_types}, {documents_types}')
 
-                print('Zero division')
-                val_2 = input('Enter number 2 again: ')
 
-            else:
-                break
-            
-     # Calculation
-    if operation == '+':
-        result = val_1 + val_2
-    elif operation == '-':
-        result = val_1 - val_2
-    elif operation == '*':
-        result = val_1 * val_2
-    elif operation == '/':
-        result = val_1 / val_2
-    if operation == '=':
-        break
-    print(f'{val_1} {operation} {val_2} = {result}')
 
-print(result)
