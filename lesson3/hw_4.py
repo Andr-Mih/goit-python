@@ -18,36 +18,43 @@ documents_types = ('doc', 'docx', 'txt', 'DOC', 'DOCX', 'TXT')
 image_files = []
 image_types = ('jpeg', 'png', 'jpg', 'bmp', 'JPEG', 'JPG', 'BMP', 'PNG')
 other_files = []
+file_in_folder = set()
 
 for file in files:
     for i in documents_types:
         if file.endswith(i):
             documents_files.append(file)
-
+        
     for i in music_types:
         if file.endswith(i):
             music_files.append(file)
-
+         
     for i in image_types:
         if file.endswith(i):
             image_files.append(file)
-    
+     
     for i in video_types:
         if file.endswith(i):
             video_files.append(file)
-    
+      
     if file not in documents_files:
         if file not in music_files:
             if file not in image_files:
                 if file not in video_files:
                     other_files.append(file)
+            
+    for idx, char in enumerate(file):
+        if char == ".":
+            type_file = file[(idx+1):]
+            file_in_folder.add(type_file)        
 
 print(f'Documents: {documents_files}')
 print(f'Music files: {music_files}')
 print(f'Image files: {image_files}')
 print(f'Video files: {video_files}')
 print(f'Other {other_files}')
-print(f'Suppotr types of files {video_types}, {music_types}, {image_types}, {documents_types}')
+print(f'Type files in the folder: {file_in_folder}')
+
 
 
 
