@@ -52,7 +52,7 @@ print(f'Documents: {documents_files}')
 print(f'Music files: {music_files}')
 print(f'Image files: {image_files}')
 print(f'Video files: {video_files}')
-print(f'Other {other_files}')
+print(f'Other files: {other_files}')
 print(f'Type files in the folder: {file_in_folder}')
 
 
