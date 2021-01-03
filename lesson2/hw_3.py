@@ -3,7 +3,7 @@ while True:
     if result != 0:
         val_1 = result
     if result == 0:
-        val_1 = input('Enter number 1 : ')
+        val_1 = input('Enter operand : ')
         while True:
             try:
              val_1 = float(val_1)
@@ -25,7 +25,7 @@ while True:
             operation = input('Enter type of operation again: ')
 
     if operation != '=':
-        val_2 = input('Enter number 2: ')
+        val_2 = input('Enter operand: ')
         while True:
             try:
                 val_2 = float(val_2)
@@ -54,6 +54,6 @@ while True:
         result = val_1 / val_2
     if operation == '=':
         break
-    print(f'{val_1} {operation} {val_2} = {result}')
+    
 
 print(result)
