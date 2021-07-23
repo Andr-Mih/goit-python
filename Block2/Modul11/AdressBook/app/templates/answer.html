@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer</title>
+</head>
+<body>
+    
+<h1>The all records in AddressBook</h1>
+{% for new in data %}
+<div> <p> {{new.name}} - {{new.phones}} - {{new.email}} - {{new.birthday}} - {{new.address}}</p></div>
+{% endfor %}
+</body>
+</html>
