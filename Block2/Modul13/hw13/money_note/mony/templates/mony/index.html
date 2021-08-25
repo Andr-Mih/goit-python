@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>What are you want to do?</h1>
+    <form>
+        <a class='button' type="submit" href="/mony/add/" target='_blank'>Add record </a>
+        <button type="submit">Filter records </button>
+    </form>
+    <br>
+    {% if record_list %}
+    <h2>All last credits:</h2>
+        <ul>
+        {% for record in record_list %}
+            <li>{{ record.credit_value }} - {{record.record_type}} - {{record.category_text}} - {{record.credit_date}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</body>
+</html>
