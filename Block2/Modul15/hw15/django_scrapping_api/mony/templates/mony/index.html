@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>What are you want to do?</h1>
+    <form>
+        <a class='button' type="submit" href="/mony/add/" target='_blank'>Search news </a>
+        </form>
+    <br>
+    {% if record_list %}
+    <h2>All last news:</h2>
+        <ul>
+        {% for record in record_list %}
+            <li>{{ record.news_time }} - {{record.news_text}} - {{record.news_inform}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</body>
+</html>
